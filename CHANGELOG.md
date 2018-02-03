@@ -1,0 +1,13 @@
+- Update binary version (see [`111c6ad`](https://github.com/viviag/postermaker/commit/111c6ad));
+- Add exceptions handling while processing csv, update examples (see [`4dd0d4b`](https://github.com/viviag/postermaker/commit/4dd0d4b));
+- Make configs lenient and update examples (see [`fbae609`](https://github.com/viviag/postermaker/commit/fbae609));
+- Update examples (see [`6b8f687`](https://github.com/viviag/postermaker/commit/6b8f687));
+- Add binary version to repo (see [`ce598c6`](https://github.com/viviag/postermaker/commit/ce598c6));
+- Add examples (see [`bb8f4c2`](https://github.com/viviag/postermaker/commit/bb8f4c2));
+- Add examples script and data to build them (see [`58428b5`](https://github.com/viviag/postermaker/commit/58428b5));
+- Implement all and ImageMagick interface especially (see [`15e7903`](https://github.com/viviag/postermaker/commit/15e7903));
+- Add postermaker.cabal to repo (see [`dbc6c4d`](https://github.com/viviag/postermaker/commit/dbc6c4d));
+- Design data structures and types, bind with csv (see [`68f0bd2`](https://github.com/viviag/postermaker/commit/68f0bd2));
+- Remove initial excess files (see [`cfb2e03`](https://github.com/viviag/postermaker/commit/cfb2e03));
+- Init Stack project (see [`73ce478`](https://github.com/viviag/postermaker/commit/73ce478));
+- Initial commit (see [`5eade56`](https://github.com/viviag/postermaker/commit/5eade56));
