@@ -1,18 +1,19 @@
 module Parameters
-  ( Params{..}
+  ( Params(..)
   , defaultParams
   ) where
 
+import Prelude hiding (readFile)
+
 import Data.ByteString.Lazy (readFile)
-import Data.Csv (decode)
+import Data.Csv (decodeByName, FromNamedRecord)
 import Data.Maybe (fromMaybe)
-import Data.Monoid ((<>))
+import Data.Text (Text)
 import Data.Vector (Vector)
 
-import Filesystem.Path.CurrentOS (encodeString)
 import System.Exit (die)
 
-import Options (Options{..})
+import Options (Options(..))
 import Types
 
 data Params = Params
@@ -26,21 +27,21 @@ data Params = Params
 
 defaultParams :: Options -> IO Params
 defaultParams Options{..} = do
-  images <- toEntry $ fromMaybe ("images" <.> "csv") optImagesConf
-  texts <- toEntry $ fromMaybe ("texts" <.> "csv") optTextConf
+  images <- toEntry $ fromMaybe "images.csv" optImagesConf
+  texts <- toEntry $ fromMaybe "texts.csv" optTextConf
   return $ Params
-    { fromMaybe "png" optFormat
-    , optName
-    , fromMaybe (255,255,255) optColor
-    , optSize
-    , images
-    , texts
+    { pFormat = fromMaybe "png" optFormat
+    , pName = optName
+    , pColor = fromMaybe (255,255,255) optColor
+    , pSize = optSize
+    , pImages = images
+    , pTexts = texts
     }
 
-toEntry :: FromNamedRecord a -> FilePath -> IO a
+toEntry :: FromNamedRecord a => FilePath -> IO (Vector a)
 toEntry path = do
-  toDecode <- readFile (encodeString path)
+  toDecode <- readFile path
   case decodeByName toDecode of
-    Left err -> die ("Cannot decode from CSV " <> path)
+    Left err -> die err
     Right (_header, entries) -> return entries
   

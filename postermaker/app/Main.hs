@@ -8,13 +8,14 @@ import Parameters
 
 act :: Params -> IO ()
 act Params{..} = do
-  createCanvas pName pSize pColor
+  createCanvas pName pFormat pSize pColor
 
-  V.mapM_ (insertImage pName) pImages
-  V.mapM_ (insertText pName) pTexts
+  V.mapM_ (insertImage pName pFormat) pImages
+  V.mapM_ (insertText pName pFormat) pTexts
 
 main :: IO ()
 main = do
   opts <- options welcome parser
 
-  act $ defaultParams opts
+  params <- defaultParams opts
+  act params

@@ -4,4 +4,4 @@ packages:
 - postermaker
 
 ghc-options:
-  'postermaker': -Wall -Werror
+  'postermaker': -Wall -Werror -Wno-orphans
