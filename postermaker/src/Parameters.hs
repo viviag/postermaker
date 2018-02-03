@@ -1,11 +1,12 @@
+{-# LANGUAGE ScopedTypeVariables #-}
 module Parameters
   ( Params(..)
   , defaultParams
   ) where
 
-import Prelude hiding (readFile)
+import Control.Exception (catch)
 
-import Data.ByteString.Lazy (readFile)
+import qualified Data.ByteString.Lazy as BSL
 import Data.Csv (decodeByName, FromNamedRecord)
 import Data.Maybe (fromMaybe)
 import Data.Text (Text)
@@ -28,8 +29,8 @@ data Params = Params
 
 defaultParams :: Options -> IO Params
 defaultParams Options{..} = do
-  images <- toEntry optImagesConf
-  texts <- toEntry optTextConf
+  images <- catch (toEntry optImagesConf) (\(e :: IOError) -> do print e; return V.empty)
+  texts <- catch (toEntry optTextConf) (\(e :: IOError) -> do print e; return V.empty)
   return $ Params
     { pFormat = fromMaybe "png" optFormat
     , pName = optName
@@ -42,7 +43,7 @@ defaultParams Options{..} = do
 toEntry :: FromNamedRecord a => Maybe FilePath -> IO (Vector a)
 toEntry Nothing = return V.empty
 toEntry (Just path) = do
-  toDecode <- readFile path
+  toDecode <- BSL.readFile path
   case decodeByName toDecode of
     Left err -> die err
     Right (_header, entries) -> return entries

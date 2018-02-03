@@ -24,7 +24,6 @@ library
     , text
     , bytestring
     , vector
-    , system-filepath
     , utf8-string
   exposed-modules:
       Options
