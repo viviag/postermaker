@@ -18,7 +18,7 @@ stack install
 All parameters of image should be stored in two `.csv` files.
 See examples: [images config](https://github.com/viviag/postermaker/blob/master/examples/images.csv), [texts config](https://github.com/viviag/postermaker/blob/master/examples/texts.csv)
 
-Header is required. I think once it will change. If you made a mistake in some file it will message you and will not use this file.
+Header is required. I think once it will change.
 
 Texts are always on the foreground.
 
