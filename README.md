@@ -15,7 +15,7 @@ stack install
 
 ### Usage notes:
 
-All parameters of image should be stored in two `.csv` files.
+All parameters of image should be stored in two `.csv` files. (coords - left upper corner of image on the collage)
 See examples: [images config](https://github.com/viviag/postermaker/blob/master/examples/images.csv), [texts config](https://github.com/viviag/postermaker/blob/master/examples/texts.csv)
 
 Header is required. I think once it will change.
