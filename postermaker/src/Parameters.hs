@@ -10,6 +10,7 @@ import Data.Csv (decodeByName, FromNamedRecord)
 import Data.Maybe (fromMaybe)
 import Data.Text (Text)
 import Data.Vector (Vector)
+import qualified Data.Vector as V
 
 import System.Exit (die)
 
@@ -27,8 +28,8 @@ data Params = Params
 
 defaultParams :: Options -> IO Params
 defaultParams Options{..} = do
-  images <- toEntry $ fromMaybe "images.csv" optImagesConf
-  texts <- toEntry $ fromMaybe "texts.csv" optTextConf
+  images <- toEntry optImagesConf
+  texts <- toEntry optTextConf
   return $ Params
     { pFormat = fromMaybe "png" optFormat
     , pName = optName
@@ -38,8 +39,9 @@ defaultParams Options{..} = do
     , pTexts = texts
     }
 
-toEntry :: FromNamedRecord a => FilePath -> IO (Vector a)
-toEntry path = do
+toEntry :: FromNamedRecord a => Maybe FilePath -> IO (Vector a)
+toEntry Nothing = return V.empty
+toEntry (Just path) = do
   toDecode <- readFile path
   case decodeByName toDecode of
     Left err -> die err

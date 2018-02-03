@@ -33,6 +33,7 @@ Everything is said in help message. To reproduce run
 ```
 postermaker -h
 ```
+If `--images` or `--texts` option is missing it will only miss images or texts.
 ```
 Create poster or collage based on options and given mappings.
 Coords and colors in mappings are formatted as x-y and r-g-b correspondingly.

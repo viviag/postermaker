@@ -29,8 +29,8 @@ parser = Options <$> optional (optText "format" 'f' "Format in which to write ou
                  -- FIXME: Custom Read instances.
                  <*> optional (optRead "color" 'c' "Background color in \"(r,g,b)\" format. White by default.")
                  <*> optRead "size" 's' "Image size in \"(x,y)\" format."
-                 <*> optional (unpack <$> optText "images" 'i' "Path to images configuration file. ./images.csv by default.")
-                 <*> optional (unpack <$> optText "texts" 't' "Path to texts configuration file. ./texts.csv by default.")
+                 <*> optional (unpack <$> optText "images" 'i' "Path to images configuration file.")
+                 <*> optional (unpack <$> optText "texts" 't' "Path to texts configuration file.")
 
 welcome :: Description
 welcome = Description $ "---\n"
