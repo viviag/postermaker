@@ -2,11 +2,11 @@
 
 This tool is designed to compose already prepared images and maybe any texts to collage.
 
-You may need it if you have to make poster or collage, have ImageMagick installed, more familiar with terminal than with PhotoShop and don't want to write html.
+You may need it if you have to make poster or collage, have ImageMagick installed, more familiar with terminal than with PowerPoint and don't want to write html.
 
 ### Installation:
 
-Download binary version from `bin` here and copy it to `~/.local/bin`.
+Download binary version from `bin` on [Github](https://github.com/viviag/postermaker) and copy it to `~/.local/bin`.
 
 Or if you have Haskell ecosystem on the computer and fear binary is out of date you can run
 ```
@@ -18,7 +18,7 @@ stack install
 All parameters of image should be stored in two `.csv` files. (coords - left upper corner of image on the collage)
 See examples: [images config](https://github.com/viviag/postermaker/blob/master/examples/images.csv), [texts config](https://github.com/viviag/postermaker/blob/master/examples/texts.csv)
 
-Header is required. I think once it will change.
+Header is required. It is subject to change.
 
 Texts are always on the foreground.
 
