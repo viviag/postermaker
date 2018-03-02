@@ -25,7 +25,7 @@ Texts are always on the foreground.
 And if you want to change layout you can reorder fields in CSV files - first entry will be deepest.
 
 See example generated with data from above:
-![Result](https://github.com/viviag/postermaker/blob/master/examples/githask.png)
+![Result](examples/githask.png)
 
 ### Usage:
 
