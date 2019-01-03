@@ -1,3 +1,3 @@
 ### Tool to create poster or collage from console
 
-See [docs](postermaker.readthedocs.io).
+See [docs](https://postermaker.readthedocs.io/en/latest/).
